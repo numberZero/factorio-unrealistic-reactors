@@ -1,0 +1,16 @@
+RealisticReactors mod:
+https://mods.factorio.com/mod/RealisticReactors
+by dodo.the.last, max2344, IngoKnieto, OwnlyMe under MIT
+https://opensource.org/licenses/MIT
+
+
+Geiger counter sounds based on:
+http://soundbible.com/1113-Radio-Active.html
+by Mike Koenig under CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+
+
+Reactor sarcophagus graphic based on:
+https://www.artstation.com/artwork/nbPvO
+by Anthony Garcellano
+

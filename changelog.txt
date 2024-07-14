@@ -1,0 +1,116 @@
+---------------------------------------------------------------------------------------------------
+Version: 3.1.5
+Date: 2024.04.15
+  Bugfixes:
+    - fixed error during mod migration phase
+---------------------------------------------------------------------------------------------------
+Version: 3.1.4
+Date: 2022.05.22
+  Changes:
+    - cleaned up heat network merge algorithm code
+    - improved debug functions
+    - updated readme.md
+  Bugfixes:
+    - fixed merging heat networks when placing reactors at chunk borders
+    - fixed changelog Locale wording
+  Locale:
+    - updated russian translation, big thanks to  Gesugao-san
+---------------------------------------------------------------------------------------------------
+Version: 3.1.3
+Date: 2022.04.24
+  Bugfixes:
+    - fixed sarcophagus recipe remained disabled after research
+    - fixed exception if cell was empty in get_entity_neighbour_cells at scripts/heat/math.lua:332
+  Locale:
+    - added korean translation, big thanks to x2605
+---------------------------------------------------------------------------------------------------
+Version: 3.1.2
+Date: 2021.08.20
+  Bugfixes:
+    - fix settings localizations
+    - fix error due to missing setting name
+    - fix sarcophagus entity picture statement
+    - remove unused code
+  Locale:
+    - update english tips and tricks
+    - update settings descriptions
+  License:
+    - update license.txt
+---------------------------------------------------------------------------------------------------
+Version: 3.1.1
+Date: 2021.08.17
+  Bugfixes:
+    - fix specific heat of heat buffer of reactor
+---------------------------------------------------------------------------------------------------
+Version: 3.1.0
+Date: 2021.08.14
+  Info:
+    - revived meltdown explosion map setting
+    - atomic bombs from True-Nukes need to be enabled if alternate meltdown explosion setting is used
+  Features:
+    - meltdown explosion compatibility with True-Nukes and PlutoniumEnergy
+    - cooling tower lights
+  Changes:
+    - rm tint from breeder
+  Bugfixes:
+    - fix crash on surface deleted
+    - fix removing non-empty reactors with robots
+    - fix reactors running forever when burnt result is full
+    - fix missing mod interface script_raised_revive event
+    - fix heat buffer connections; hack limit of 200 using big-data-string mod
+    - fix mod setting namespace
+    - fix lighting & masking
+    - cleanup textures
+---------------------------------------------------------------------------------------------------
+Version: 3.0.0
+Date: 2021.01.29
+  Info:
+    - code rewrite, cleanup
+    - saves with the 2.x version will be converted
+    - saves with the 3.x version aren't backward compatible! Test carefully.
+    - unlimited heat-pipe network size
+    - no periodic heat-pipe checks anymore
+    - meltdown explosion fixed to regular
+    - fallout mode fixed to clouds and radioactivity
+    - meltdown mode fixed to ruin with sarcophagus
+    - manual neighbor check removed due to heat-network optimizations
+    - periodic neighbor check removed due to heat-network optimizations
+  Bugfixes:
+    - blueprinting fixes
+    - bot and pipette placement fixes
+    - consistent event handling
+    - sarcophagus fits over adjacent reactor ruins
+    - tons of code and logic fixes
+    - code reorder, modularization
+    - heat-network rewrite, new logic with clustered A* pathfinder
+    - underground heat-pipe support removed, now handled through event system
+    - hack to get heat buffer connections from prototype
+    - deterministic runtime behavior
+    - remove rr-interface calls, except for debugging
+    - add readme.md
+    - fix tofu in changelog.txt
+  Locale:
+    - update english translation
+    - add german translation
+    - update russian translation
+  Graphics:
+    - cleanup unused files
+    - remove nuclear explosion
+---------------------------------------------------------------------------------------------------
+Version: 2.20.0
+Date: 2020.12.26
+  Changes:
+    - included a few (hopefully) helpful entries in the tips and tricks
+---------------------------------------------------------------------------------------------------
+Version: 2.19.1
+Date: 2020.12.25
+  Bugfixes:
+    - fixed error in GUI 
+  Changes:
+    - reactor cannot be started / stopped from GUI anymore
+---------------------------------------------------------------------------------------------------
+Version: 2.19.0
+Date: 2020.12.23
+  Info:
+    - compatibility with Factorio version 1.1
+    - BACKUP YOUR SAVEGAME BEFORE OVERWRITING IT !
