@@ -3,7 +3,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "signal_control_start",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/signal_start.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/signal_start.png",
 		priority = "extra-high-no-scale",
 		width = 32,
 		height = 32,
@@ -12,7 +12,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "signal_reactor_power_output",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/signal_power.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/signal_power.png",
 		priority = "extra-high-no-scale",
 		width = 32,
 		height = 32,
@@ -21,7 +21,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "signal_reactor_efficiency",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/signal_efficiency.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/signal_efficiency.png",
 		priority = "extra-high-no-scale",
 		width = 32,
 		height = 32,
@@ -31,7 +31,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-r-1",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-r-1.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-r-1.png",
 		priority = "extra-high-no-scale",
 		width = 1414,
 		height = 39,
@@ -39,7 +39,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-r-2",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-r-2.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-r-2.png",
 		priority = "extra-high-no-scale",
 		width = 1414,
 		height = 39,
@@ -47,7 +47,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-r-3",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-r-3.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-r-3.png",
 		priority = "extra-high-no-scale",
 		width = 1414,
 		height = 39,
@@ -55,7 +55,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-r-4",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-r-4.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-r-4.png",
 		priority = "extra-high-no-scale",
 		width = 1414,
 		height = 39,
@@ -63,7 +63,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-r-5",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-r-5.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-r-5.png",
 		priority = "extra-high-no-scale",
 		width = 1414,
 		height = 39,
@@ -72,7 +72,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-b-1",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-b-1.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-b-1.png",
 		priority = "extra-high-no-scale",
 		width = 1641,
 		height = 39,
@@ -80,7 +80,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-b-2",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-b-2.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-b-2.png",
 		priority = "extra-high-no-scale",
 		width = 1641,
 		height = 39,
@@ -88,7 +88,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-b-3",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-b-3.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-b-3.png",
 		priority = "extra-high-no-scale",
 		width = 1641,
 		height = 39,
@@ -96,7 +96,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-b-4",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-b-4.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-b-4.png",
 		priority = "extra-high-no-scale",
 		width = 1641,
 		height = 39,
@@ -104,7 +104,7 @@ data:extend(
 	{
 		type = "sprite",
 		name = "tab-b-5",
-		filename = "__RealisticReactors__/graphics/tips_and_tricks/tab-b-5.png",
+		filename = "__UnrealisticReactors__/graphics/tips_and_tricks/tab-b-5.png",
 		priority = "extra-high-no-scale",
 		width = 1641,
 		height = 39,
@@ -135,7 +135,7 @@ data:extend(
 			type = "research",
 			technology = "nuclear-power"
 		},
-		image = "__RealisticReactors__/graphics/tips_and_tricks/title_pic.png"
+		image = "__UnrealisticReactors__/graphics/tips_and_tricks/title_pic.png"
 	},
 	
 	
@@ -152,7 +152,7 @@ data:extend(
 			type = "research",
 			technology = "nuclear-power"
 		},
-		image = "__RealisticReactors__/graphics/tips_and_tricks/reactor_interface.png"
+		image = "__UnrealisticReactors__/graphics/tips_and_tricks/reactor_interface.png"
 	},
 	
 	-- Meltdown
@@ -168,7 +168,7 @@ data:extend(
 			type = "research",
 			technology = "nuclear-power"
 		},
-		image = "__RealisticReactors__/graphics/tips_and_tricks/meltdown.png"
+		image = "__UnrealisticReactors__/graphics/tips_and_tricks/meltdown.png"
 	},	
 	
 	-- Power output and efficiency
@@ -199,7 +199,7 @@ data:extend(
 			type = "research",
 			technology = "nuclear-power"
 		},
-		image = "__RealisticReactors__/graphics/tips_and_tricks/output_reactor.png"
+		image = "__UnrealisticReactors__/graphics/tips_and_tricks/output_reactor.png"
 	},
 	
 	-- Output Breeder
@@ -215,7 +215,7 @@ data:extend(
 			type = "research",
 			technology = "nuclear-power"
 		},
-		image = "__RealisticReactors__/graphics/tips_and_tricks/output_breeder.png"
+		image = "__UnrealisticReactors__/graphics/tips_and_tricks/output_breeder.png"
 	},	
 	
 	

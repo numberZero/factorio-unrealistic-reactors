@@ -1,8 +1,0 @@
-{
-  "mod_setting": [
-    ["clouds_generation", "clouds-generation"],
-    ["rr-clouds-duration", "clouds-duration"],
-    ["rr-fallout-duration", "fallout-duration"],
-    ["rr_energy_consumption_multiplier", "energy-consumption-multiplier"]
-  ]
-}

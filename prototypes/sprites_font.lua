@@ -20,7 +20,7 @@ for _, color in pairs(colors) do
 		{
 			type="sprite",
 			name="rr-"..color,
-			filename = "__RealisticReactors__/graphics/sprites/"..color..".png",
+			filename = "__UnrealisticReactors__/graphics/sprites/"..color..".png",
 			priority = "extra-high",
 			width = 1,
 			height = 1,
@@ -39,7 +39,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-black",
-		filename = "__RealisticReactors__/graphics/sprites/black.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/black.png",
 		priority = "extra-high",
 		width = 1,
 		height = 1,
@@ -47,7 +47,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-black-background",
-		filename = "__RealisticReactors__/graphics/black192x101.png",
+		filename = "__UnrealisticReactors__/graphics/black192x101.png",
 		priority = "extra-high",
 		width = 192,
 		height = 101,
@@ -56,7 +56,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-x",
-		filename = "__RealisticReactors__/graphics/sprites/button_x.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_x.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
@@ -64,7 +64,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-graph",
-		filename = "__RealisticReactors__/graphics/sprites/button_graph.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_graph.png",
 		priority = "extra-high",
 		width = 61,
 		height = 32,
@@ -72,7 +72,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-graph-off",
-		filename = "__RealisticReactors__/graphics/sprites/button_graph_off.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_graph_off.png",
 		priority = "extra-high",
 		width = 61,
 		height = 32,
@@ -80,7 +80,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-signals",
-		filename = "__RealisticReactors__/graphics/sprites/button_signals.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_signals.png",
 		priority = "extra-high",
 		width = 90,
 		height = 32,
@@ -88,7 +88,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-signals-off",
-		filename = "__RealisticReactors__/graphics/sprites/button_signals_off.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_signals_off.png",
 		priority = "extra-high",
 		width = 90,
 		height = 32,
@@ -96,7 +96,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-progress",
-		filename = "__RealisticReactors__/graphics/sprites/button_progress.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_progress.png",
 		priority = "extra-high",
 		width = 61,
 		height = 32,
@@ -104,7 +104,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-button-progress-off",
-		filename = "__RealisticReactors__/graphics/sprites/button_progress_off.png",
+		filename = "__UnrealisticReactors__/graphics/sprites/button_progress_off.png",
 		priority = "extra-high",
 		width = 61,
 		height = 32,
@@ -112,7 +112,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-bonuscell-sprite",
-		filename = "__RealisticReactors__/graphics/icons/bonuscell_sprite.png",
+		filename = "__UnrealisticReactors__/graphics/icons/bonuscell_sprite.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
@@ -120,7 +120,7 @@ data:extend({
 	{
 		type="sprite",
 		name="rr-transparent-sprite",
-		filename = "__RealisticReactors__/graphics/transparent32.png",
+		filename = "__UnrealisticReactors__/graphics/transparent32.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,

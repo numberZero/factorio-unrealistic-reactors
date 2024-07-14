@@ -1,3 +1,5 @@
+Forked from RealisticReactors, because the current maintainers deny the very possibility of any bugs in their beautiful code.
+
 We introduce a nuclear reactor, a breeder reactor and a cooling tower. The nuclear reactor type has high power output while the breeder reactor type has medium power output and produces bonus materials. The thermal energy output of both reactor types as well as fuel efficiencies are dynamic and depend on operational temperature. The reactors have to be controlled with signals through the integrated circuit interface and depend on the cooling infrastructure through the Emergency Core Cooling System (ECCS) interface. Without cooling the reactor core will finally overheat and cause a meltdown. Cooling towers are designed to cool down hot water or steam coming from the ECCS or other parts of the plant. Physical layout of the power plant also plays a significant role. 
 
 
@@ -19,11 +21,6 @@ The alternative **Ingo's formulas** work a little different. Power output will a
 When the reactor core reaches 1000°C a reactor core meltdown is caused. The reactor explodes and leaves a ruin behind. That ruin  produces permanent radiation around and generates radioactive clouds. These clouds pollute large areas around the reactor ruin. The radiation effect is damage to all lifeforms in proximity. To stop the radiation spreading, a sarcophagus must be built over the reactor ruin, then the radiation will slowly decay.
 
 
-# Documentation
----------------------------------------------------------------------------------------------------------------------------------------------
-Find more details about Realistic Reactors operation [in the forum post](https://forums.factorio.com/viewtopic.php?f=93&t=56621), the [«FAQ» section](https://mods.factorio.com/mod/RealisticReactors/faq) and the ``DOCUMENTATION`` folder of the mod archive. Finally, talk to us! Our communication channel is the [«Discussion» section of the «Realistic Reactors» mod page](https://mods.factorio.com/mod/RealisticReactors/discussion).
-
-
 # Supported languages
 ---------------------------------------------------------------------------------------------------------------------------------------------
 * English
@@ -43,7 +40,7 @@ Find more details about Realistic Reactors operation [in the forum post](https:/
 
 # Compatibility
 ---------------------------------------------------------------------------------------------------------------------------------------------
-* limited compatibility with mods which modify the connections or sizes of heat-pipe entities (e.g. [Schall Pipe Scaling](https://mods.factorio.com/mod/SchallPipeScaling) and similar) – when using such mods with Realistic Reactors please make sure the vanilla heat-pipes are used for the reactor heat-pipe network
+* limited compatibility with mods which modify the connections or sizes of heat-pipe entities (e.g. [Schall Pipe Scaling](https://mods.factorio.com/mod/SchallPipeScaling) and similar) – when using such mods with Unrealistic Reactors please make sure the vanilla heat-pipes are used for the reactor heat-pipe network
 * blueprints made with RealisticReactors before version 3.0.0 need to be updated due to fixes in the reactor's combinator network interface
 * please report on our mod discussion page if any incompatibilities are discovered
 
@@ -78,7 +75,7 @@ The information on this mod page represents the state of the current release and
 
 # Found a bug, issue or a missing feature?
 ---------------------------------------------------------------------------------------------------------------------------------------------
-Please report bugs or issues to our [mod discussion page](https://mods.factorio.com/mod/RealisticReactors/discussion) in accordance with [factorio bug report rules](https://forums.factorio.com/viewtopic.php?f=7&t=3638) or talk with us about the desired features.
+Please report bugs or issues to the [issue tracker](https://github.com/numberZero/factorio-unrealistic-reactors/issues).
 
 
 # Why are blueprints placed with missing combinator network connections?
@@ -104,12 +101,3 @@ The alternative **Ingo's formulas** work a little different. Power output will a
 # What is a reactor core meltdown?
 ---------------------------------------------------------------------------------------------------------------------------------------------
 When the reactor core reaches 1000°C a reactor core meltdown is caused. The reactor explodes and leaves a ruin behind. That ruin  produces permanent radiation around and generates radioactive clouds. These clouds pollute large areas around the reactor ruin. The radiation effect is damage to all lifeforms in proximity. To stop the radiation spreading, a sarcophagus must be built over the reactor ruin, then the radiation will slowly decay.
-
-
-# Where do I find more information?
----------------------------------------------------------------------------------------------------------------------------------------------
-Find [more details in the forum post](https://forums.factorio.com/viewtopic.php?f=93&t=56621) and the ``DOCUMENTATION`` folder of the mod archive.
-
-Finally, talk to us!
-
-

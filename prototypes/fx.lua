@@ -34,7 +34,7 @@ local perma_radiation = {
 	show_when_smoke_off = true,
 	random_animation_offset = true,
 	animation = {
-		filename = "__RealisticReactors__/graphics/fallout/fallout_spritesheet.png",
+		filename = "__UnrealisticReactors__/graphics/fallout/fallout_spritesheet.png",
 		random_animation_offset = true,
 
 		priority = "low",
@@ -63,7 +63,7 @@ local perma_radiation = {
 -- fallout appearance
 if Setting.appearance("fallout") == "invisible" then
 	perma_radiation.animation = {
-		filename = "__RealisticReactors__/graphics/transparent32.png",
+		filename = "__UnrealisticReactors__/graphics/transparent32.png",
 		random_animation_offset = true,
 		flags = { "compressed" },
 		priority = "low",
@@ -78,7 +78,7 @@ if Setting.appearance("fallout") == "invisible" then
 
 elseif Setting.appearance("fallout") == "half-transparent" then
 	perma_radiation.animation = {
-		filename = "__RealisticReactors__/graphics/fallout/fallout_spritesheet_half.png",
+		filename = "__UnrealisticReactors__/graphics/fallout/fallout_spritesheet_half.png",
 		random_animation_offset = true,
 		priority = "low",
 		width = 249,
@@ -93,7 +93,7 @@ elseif Setting.appearance("fallout") == "half-transparent" then
 
 elseif Setting.appearance("fallout") == "green-veil" then
 	perma_radiation.animation = {
-		filename = "__RealisticReactors__/graphics/fallout/fallout-green.png",
+		filename = "__UnrealisticReactors__/graphics/fallout/fallout-green.png",
 		random_animation_offset = true,
 		flags = { "compressed" },
 		priority = "low",
@@ -123,7 +123,7 @@ data:extend{
 		render_layer = "entity-info-icon-above",
 		show_when_smoke_off = true,
 		animation = {
-			filename = "__RealisticReactors__/graphics/fallout/cloud-45-frames.png",
+			filename = "__UnrealisticReactors__/graphics/fallout/cloud-45-frames.png",
 			flags = {"compressed"},
 			priority = "low",
 			width = 256,
@@ -151,12 +151,12 @@ data:extend{
 	{
 		type = "sound",
 		name = "RR-geiger-0",
-		filename = "__RealisticReactors__/sound/geiger0.ogg",
+		filename = "__UnrealisticReactors__/sound/geiger0.ogg",
 	},
 	{
 		type = "sound",
 		name = "RR-geiger-1",
-		filename = "__RealisticReactors__/sound/geiger1.ogg",
+		filename = "__UnrealisticReactors__/sound/geiger1.ogg",
 	},
 
 }

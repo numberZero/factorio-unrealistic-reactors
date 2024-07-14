@@ -16,7 +16,7 @@ data:extend{
 	{
 		type = "item",
 		name = "realistic-reactor",
-		icon = "__RealisticReactors__/graphics/icons/nuclear-reactor.png",
+		icon = "__UnrealisticReactors__/graphics/icons/nuclear-reactor.png",
 		icon_size = 32,
 		subgroup = "realistic-reactors-energy",
 		order = "f[nuclear-energy]-b[a-realistic-reactor]-a[normal]",
@@ -27,7 +27,7 @@ data:extend{
 -- 	{ -- not needed
 -- 		type = "item",
 -- 		name = "reactor-ruin",
--- 		icon = "__RealisticReactors__/graphics/icons/nuclear-reactor.png",
+-- 		icon = "__UnrealisticReactors__/graphics/icons/nuclear-reactor.png",
 -- 		icon_size = 32,
 -- 		subgroup = "realistic-reactors-energy",
 -- 		order = "f[nuclear-energy]-b[a-realistic-reactor]-z[ruin]",
@@ -38,7 +38,7 @@ data:extend{
 		{
 		type = "item",
 		name = "breeder-reactor",
-		icon = "__RealisticReactors__/graphics/icons/breeder-reactor.png",
+		icon = "__UnrealisticReactors__/graphics/icons/breeder-reactor.png",
 		icon_size = 32,
 		subgroup = "realistic-reactors-energy",
 		order = "f[nuclear-energy]-b[a-realistic-reactor]-b[breeder]",
@@ -49,7 +49,7 @@ data:extend{
 	{
 		type = "item",
 		name = "rr-cooling-tower",
-		icon = "__RealisticReactors__/graphics/icons/cooling-tower.png",
+		icon = "__UnrealisticReactors__/graphics/icons/cooling-tower.png",
 		icon_size = 32,
 		subgroup = "realistic-reactors-energy",
 		order = "f[nuclear-energy]-d[cooling-tower]",
@@ -60,7 +60,7 @@ data:extend{
 	{
 		type = "item",
 		name = "reactor-sarcophagus",
-		icon = "__RealisticReactors__/graphics/icons/sarcophagus2.png",
+		icon = "__UnrealisticReactors__/graphics/icons/sarcophagus2.png",
 		icon_size = 32,
 		subgroup = "realistic-reactors-energy",
 		order = "f[nuclear-energy]-s[sarcophagus]",
@@ -71,7 +71,7 @@ data:extend{
 	{
 		type = "item",
 		name = "realistic-reactor-interface",
-		icon = "__RealisticReactors__/graphics/icons/nuclear-reactor-interface.png",
+		icon = "__UnrealisticReactors__/graphics/icons/nuclear-reactor-interface.png",
 		icon_size = 32,
 		flags = {"hidden","primary-place-result","only-in-cursor"},
 		subgroup = "realistic-reactors-energy",
@@ -82,7 +82,7 @@ data:extend{
 	{
 		type = "item",
 		name = "realistic-breeder-interface",
-		icon = "__RealisticReactors__/graphics/icons/breeder-interface.png",
+		icon = "__UnrealisticReactors__/graphics/icons/breeder-interface.png",
 		icon_size = 32,
 		flags = {"hidden","primary-place-result","only-in-cursor"},
 		subgroup = "realistic-reactors-energy",

@@ -3,7 +3,7 @@
 --    name = "rr-red-light",
 --	order = "z",
 --	alert_icon_scale =0,
---    icon = "__RealisticReactors__/graphics/lamps/red.png",
+--    icon = "__UnrealisticReactors__/graphics/lamps/red.png",
 --    icon_size = 32,
 --	collision_mask={"layer-13"},
 --    flags = {"placeable-neutral", "player-creation", "placeable-off-grid","not-deconstructable"},
@@ -30,7 +30,7 @@
 --      layers =
 --      {
 --        {
---          filename = "__RealisticReactors__/graphics/transparent32.png",
+--          filename = "__UnrealisticReactors__/graphics/transparent32.png",
 --          priority = "high",
 --          width = 32,
 --          height = 32,
@@ -43,7 +43,7 @@
 --    },
 --    picture_on =
 --    {
---      filename = "__RealisticReactors__/graphics/transparent32.png",
+--      filename = "__UnrealisticReactors__/graphics/transparent32.png",
 --      priority = "high",
 --      width = 32,
 --      height = 32,
@@ -69,7 +69,7 @@ local orange_light = {
 	animations =
 	{
 		{
-			filename = "__RealisticReactors__/graphics/transparent32.png",
+			filename = "__UnrealisticReactors__/graphics/transparent32.png",
 			priority = "high",
 			width = 1,
 			height = 1,
@@ -94,7 +94,7 @@ local orange_lamp = {
 	corpse = "small-remnants",
 	picture = {layers={
 		{
-			filename = "__RealisticReactors__/graphics/lamps/red.png",
+			filename = "__UnrealisticReactors__/graphics/lamps/red.png",
 			priority = "extra-high",
 			width = 32,
 			height = 32,
@@ -102,7 +102,7 @@ local orange_lamp = {
 			--shift = {-0.5, -0.5}
 		},
 		{
-			filename = "__RealisticReactors__/graphics/lamps/red.png",
+			filename = "__UnrealisticReactors__/graphics/lamps/red.png",
 			priority = "extra-high",
 			width = 32,
 			height = 32,
@@ -117,33 +117,33 @@ local orange_lamp = {
 yellow_light = table.deepcopy(orange_light)
 yellow_light.name="rr-yellow-light"
 yellow_light.light = {intensity = 0.6, size = 1, color = {r=1.0, g=1.0, b=0.0}}
---yellow_light.icon = "__RealisticReactors__/graphics/lamps/yellow.png"
+--yellow_light.icon = "__UnrealisticReactors__/graphics/lamps/yellow.png"
 
 yellow_lamp = table.deepcopy(orange_lamp)
 yellow_lamp.name="rr-yellow-lamp"
-setfilename(yellow_lamp.picture, "__RealisticReactors__/graphics/lamps/yellow.png")
+setfilename(yellow_lamp.picture, "__UnrealisticReactors__/graphics/lamps/yellow.png")
 
 
 
 green_light = table.deepcopy(orange_light)
 green_light.name="rr-green-light"
 green_light.light = {intensity = 0.6, size = 1, color = {r=0.0, g=1.0, b=0.0}}
---green_light.icon = "__RealisticReactors__/graphics/lamps/green.png"
+--green_light.icon = "__UnrealisticReactors__/graphics/lamps/green.png"
 
 green_lamp = table.deepcopy(orange_lamp)
 green_lamp.name="rr-green-lamp"
-setfilename(green_lamp.picture, "__RealisticReactors__/graphics/lamps/green.png")
+setfilename(green_lamp.picture, "__UnrealisticReactors__/graphics/lamps/green.png")
 
 
 
 red_light = table.deepcopy(orange_light)
 red_light.name="rr-black-light"
 red_light.light = {intensity = 0.6, size = 1, color = {r=1, g=0, b=0}}
---orange_light.icon = "__RealisticReactors__/graphics/lamps/black.png"
+--orange_light.icon = "__UnrealisticReactors__/graphics/lamps/black.png"
 
 red_lamp = table.deepcopy(orange_lamp)
 red_lamp.name="rr-black-lamp"
-setfilename(red_lamp.picture, "__RealisticReactors__/graphics/lamps/black.png")
+setfilename(red_lamp.picture, "__UnrealisticReactors__/graphics/lamps/black.png")
 
 ruin_glow = table.deepcopy(orange_light)
 ruin_glow.name = "rr-ruin-glow"
@@ -152,7 +152,7 @@ ruin_glow.light = {intensity = 0.22, size = 6.5, shift = {0.0, 0.0}, color = {r 
 
 ruin_glow.animations = {
 	{
-		filename = "__RealisticReactors__/graphics/transparent32.png",
+		filename = "__UnrealisticReactors__/graphics/transparent32.png",
 		priority = "high",
 		width = 1,
 		height = 1,

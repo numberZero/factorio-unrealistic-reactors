@@ -6,7 +6,7 @@ local Setting = require "scripts.setting"
 	data:extend({{
 		type = "item",
 		name = "rr-clowns-mox-cell",
-		icon = "__RealisticReactors__/graphics/icons/mox_fuel_cell.png",
+		icon = "__UnrealisticReactors__/graphics/icons/mox_fuel_cell.png",
 		icon_size = 32,
 		--flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
@@ -16,7 +16,7 @@ local Setting = require "scripts.setting"
 		fuel_value = "7GJ",
 		stack_size = 50
 	}})
-	recipe.icon = "__RealisticReactors__/graphics/icons/clowns_mox_recipe.png"
+	recipe.icon = "__UnrealisticReactors__/graphics/icons/clowns_mox_recipe.png"
 	recipe.results[1].name="rr-clowns-mox-cell"
 end end
 

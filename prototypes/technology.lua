@@ -2,7 +2,7 @@ data:extend{
 	{
 		type = "technology",
 		name = "breeder-reactors",
-		icon = "__RealisticReactors__/graphics/technology/breeder-reactors.png",
+		icon = "__UnrealisticReactors__/graphics/technology/breeder-reactors.png",
 		icon_size = 128,
 		effects = {
 			{
