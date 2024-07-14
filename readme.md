@@ -1,5 +1,18 @@
 Forked from RealisticReactors, because the current maintainers deny the very possibility of any bugs in their beautiful code.
 
+#### Migration from RealisticReactors
+
+Migration from RealisticReactors is not fully supported yet, however you can still try:
+
+1. Blueprint all your reactors. Make sure all the circuit connections are in the blueprints.
+2. MAKE SURE YOU HAVE ENOUGH BACKUP POWER.
+3. Stop and remove all built reactors.
+4. Disable RealisticReactors, enable this mod.
+5. Place reactors back.
+6. Start the reactors. This is where the backup power is necessary.
+
+#### Original description
+
 We introduce a nuclear reactor, a breeder reactor and a cooling tower. The nuclear reactor type has high power output while the breeder reactor type has medium power output and produces bonus materials. The thermal energy output of both reactor types as well as fuel efficiencies are dynamic and depend on operational temperature. The reactors have to be controlled with signals through the integrated circuit interface and depend on the cooling infrastructure through the Emergency Core Cooling System (ECCS) interface. Without cooling the reactor core will finally overheat and cause a meltdown. Cooling towers are designed to cool down hot water or steam coming from the ECCS or other parts of the plant. Physical layout of the power plant also plays a significant role. 
 
 
