@@ -221,7 +221,7 @@ reactor_template = {
 	max_health = 500,
 	corpse = "big-remnants",
 	consumption = "40MW",
-	neighbour_bonus = 1,
+	neighbour_bonus = 0,
 	selectable_in_game = false,
 	vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
 	meltdown_action = nil,
