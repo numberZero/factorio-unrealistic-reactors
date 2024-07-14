@@ -402,12 +402,12 @@ for i=1, 250 do
 	temp_reactor.name = "realistic-reactor-"..i
 	temp_reactor.collision_mask = {"item-layer"}
 	temp_reactor.consumption = i.."MW"
-	
+
 	if debug_core then
 		temp_reactor.selection_box = {{-1.4, -2.5}, {1.4, 1.35}}
 		temp_reactor.selectable_in_game = true
 	end
-	
+
 	data:extend({temp_reactor})
 
 end

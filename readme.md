@@ -1,4 +1,4 @@
-Forked from RealisticReactors, because the current maintainers deny the very possibility of any bugs in their beautiful code.
+Forked from RealisticReactors due to bugs.
 
 #### Migration from RealisticReactors
 
