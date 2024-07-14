@@ -349,6 +349,8 @@ reactor_normal.heat_lower_layer_picture = apply_heat_pipe_glow{
 	shift = REACTOR_DEFAULT_PICTURE_ATTRS.shift,
 }
 
+reactor_normal.heat_buffer.specific_heat = "1kJ"
+reactor_normal.heat_buffer.max_transfer = "0.00001W"
 reactor_normal.heat_buffer.heat_picture = apply_heat_pipe_glow{
 	filename = "__UnrealisticReactors__/graphics/entity/reactor-heated.png",
 	priority = "extra-high",
