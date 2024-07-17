@@ -123,4 +123,25 @@ local function find_reactors()
 	return reactors
 end
 
+local function find_towers()
+	local towers = {}
+	for name, surface in pairs(game.surfaces) do
+		for _, entity in ipairs(surface.find_entities_filtered{name=TOWER_ENTITY_NAME}) do
+			local p = entity.position
+			local subs = get_subs(surface.find_entities({{p.x-1.5, p.y-1.5}, {p.x+1.5, p.y+1.5}}), {
+				entity = TOWER_ENTITY_NAME,
+				steam = STEAM_ENTITY_NAME,
+			})
+			local tower = {
+				id = entity.unit_number,
+				entity = entity,
+				steam = subs.steam,
+			}
+			towers[tower.id] = tower
+		end
+	end
+	return towers
+end
+
 global.reactors = find_reactors()
+global.towers = find_towers()

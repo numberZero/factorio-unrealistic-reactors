@@ -2,7 +2,7 @@ Forked from RealisticReactors due to bugs.
 
 #### Migration from RealisticReactors
 
-Migration from RealisticReactors is partially supported. Reactors should work, however intermediate states (starting or stopping) may not work as expected. Cooling towers should work, though visuals may glitch. Other buildings weren’t tested yet.
+Migration from RealisticReactors is partially supported. Reactors and cooling towers should work, however intermediate states (starting or stopping) may not work as expected.
 
 #### Original description
 
