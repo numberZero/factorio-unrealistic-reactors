@@ -21,8 +21,6 @@ end
 
 
 local function init()
-	global.version = 12 -- important for migrations
-
 	global.random = game.create_random_generator()
 	global.lightEffects = {}
 
