@@ -2,14 +2,7 @@ Forked from RealisticReactors due to bugs.
 
 #### Migration from RealisticReactors
 
-Migration from RealisticReactors is not fully supported yet, however you can still try:
-
-1. Blueprint all your reactors. Make sure all the circuit connections are in the blueprints.
-2. MAKE SURE YOU HAVE ENOUGH BACKUP POWER.
-3. Stop and remove all built reactors.
-4. Disable RealisticReactors, enable this mod.
-5. Place reactors back.
-6. Start the reactors. This is where the backup power is necessary.
+Migration from RealisticReactors is partially supported. Reactors should work, however intermediate states (starting or stopping) may not work as expected. Cooling towers should work, though visuals may glitch. Other buildings weren’t tested yet.
 
 #### Original description
 
