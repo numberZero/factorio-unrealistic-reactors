@@ -4,7 +4,7 @@ local Setting = require(rpath .. "setting")
 -- calculate power output, efficiency, bonus cell production
 
 local function calculate_stats_ingo(reactor,state_running_time)
-	local temperature = reactor.core.temperature
+	local temperature = reactor.entity.temperature
 	local reactor_neighbours = math.min(reactor.neighbours,4)
 	local power 
 	local power_breeder
@@ -187,7 +187,7 @@ local function calculate_stats_ownly(reactor,running_time)
 	if fuel_cell ~= nil then
 		fuel_cell_name = fuel_cell.name
 	end
-	local temperature = reactor.core.temperature
+	local temperature = reactor.entity.temperature
 	local neighbours = reactor.neighbours
 	local reactors = neighbours
 	reactors = math.min(4,reactors)

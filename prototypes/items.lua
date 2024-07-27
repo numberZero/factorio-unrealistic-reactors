@@ -90,20 +90,4 @@ data:extend{
 		place_result = "realistic-breeder-interface",
 		stack_size = 50,
 	},
-
-	-- Dummy Fuel Cell for Reactor Core
-	{
-		type = "item",
-		name = "rr-dummy-fuel-cell",
-		flags = {"hidden","hide-from-bonus-gui","hide-from-fuel-tooltip"},
-		icon = "__base__/graphics/icons/uranium-fuel-cell.png",
-		icon_size = 32,
-		subgroup = "intermediate-product",
-		order = "r[uranium-processing]-a[uranium-fuel-cell]",
-		fuel_category = "nuclear",
-		burnt_result = "used-up-uranium-fuel-cell",
-		fuel_value = "9223372035GJ",
-		stack_size = 50,
-	},
-
 }

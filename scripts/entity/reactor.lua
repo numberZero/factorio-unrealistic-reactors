@@ -32,13 +32,7 @@ local function Signals() return { parameters = { -- signals for interface
 local function add_reactor(entity,interface)
 	local surface = entity.surface
 	local p,f = entity.position,entity.force
-	local reactor_core = surface.create_entity{
-		name = "realistic-reactor-1",
-		position = p,
-		force = f,
-	}
 	--reactor is actually the reactor core
-	reactor_core.destructible = false
 	--logging("---------------------------------------------------------------")
 	--logging("Adding new reactor: "..entity.name)
 	--logging("Reactor core ID: " .. reactor_core.unit_number)
@@ -80,9 +74,6 @@ local function add_reactor(entity,interface)
 	reactor_lamp.destructible = false
 	reactor_light.destructible = false
 
-	-- reactor is not active when it is build (state=stopped)
-	reactor_core.active = false
-
 	--max power for gui
 	if Setting.ingos_formula() then
 		reactor_max_power = 123
@@ -95,13 +86,11 @@ local function add_reactor(entity,interface)
 	end
 	local reactor = {
 		id = entity.unit_number, -- ID of the reactor (doesn't change)
-		core_id = reactor_core.unit_number, -- ID of the core (changes when core is replaced)
-		core = reactor_core, -- core entity
 		interface = interface, -- interface entity
 		eccs = eccs, -- eccs entity
 		power = power, -- power entity
 		entity = entity, -- displayer entity
-		position = reactor_core.position, -- core position = reactor position
+		position = entity.position, -- core position = reactor position
 		state = 0, -- reactor state
 		state_active_since = game.tick, -- state begin
 		neighbours = 1, -- number of connected reactors and itself
@@ -126,7 +115,6 @@ local function add_reactor(entity,interface)
 		signals = Signals(),
 	}
 	global.reactors[reactor.id] = reactor
-	reactor.core.get_fuel_inventory().insert{name="rr-dummy-fuel-cell", count = 50}
 	reactor.control.parameters = reactor.signals.parameters
 	--logging("-> reactor successfully added")
 	--logging("")
@@ -192,7 +180,6 @@ local function remove_reactor(entity, tick, has_died)
 	--remove other stuff
 	if reactor.power.valid then reactor.power.destroy() end -- remove power entity
 	if reactor.eccs.valid then reactor.eccs.destroy() end -- remove eccs
-	if reactor.core.valid then reactor.core.destroy() end
 	if reactor.lamp.valid then reactor.lamp.destroy() end
 	if reactor.light.valid then reactor.light.destroy() end
 	if reactor.interface_warning and reactor.interface_warning.valid then reactor.interface_warning.destroy() end
@@ -202,72 +189,6 @@ local function remove_reactor(entity, tick, has_died)
 	global.reactors[reactor.id] = nil
 end
 
-
--- replaces the reactor core entity with another one
-local function replace_reactor_core(reactor, new_reactor_entity_name)
-	local temp = reactor.core.temperature
-	--logging("Building reactor model: "..new_reactor_entity_name)
-
-	--logging("- old reactor ID: " .. reactor.id)
-	--logging("- old reactor core ID: " .. reactor.core_id)
-
-	-- create new reactor core
-	local new_reactor_core = reactor.core.surface.create_entity{
-		name = new_reactor_entity_name,
-		position = reactor.core.position,
-		force = reactor.core.force,
-		create_build_effect_smoke = false,
-	}
-	--logging("- new reactor core ID: " .. new_reactor_core.unit_number)
-
-	-- copy everything from old core to new core
-	new_reactor_core.copy_settings(reactor.core) --(what is this actually copying???) -- on/off state for example
-	new_reactor_core.temperature = temp
-	new_reactor_core.destructible = false
-	--logging("-> updated temperature: " .. new_reactor_core.temperature)
-	-- transfer burner heat and remaining fuel in burner
-
-	--if reactor.state == 0 and not (Setting.behavior("scram") == "stop-half-empty") then
-	--	-- do nothing (don't transfer burner heat to a stopped or scramed reactor)
-	--	if Setting.behavior("scram") == "consume-additional-cell" and reactor.entity.burner.currently_burning then
-	--		reactor.entity.get_burnt_result_inventory().insert({name = reactor.entity.burner.currently_burning.burnt_result.name, count = 1})
-	--		reactor.entity.burner.currently_burning = nil
-	--	end
-    --
-	--	--logging("-> burner settings not transferred, state: stopped or scramed")
-	--else
-	--	-- transfer current burner settings
-	--	--if reactor.core.burner.heat > 0 then --not reliable!
-	--	if reactor.entity.burner.remaining_burning_fuel > 0 then
-			--new_reactor_core.burner.currently_burning = game.item_prototypes["uranium-fuel-cell"]
-			--new_reactor_core.burner.currently_burning = reactor.entity.burner.currently_burning
-			new_reactor_core.burner.currently_burning = "rr-dummy-fuel-cell"
-			new_reactor_core.burner.remaining_burning_fuel = 9223372035000000000
-			new_reactor_core.burner.heat = reactor.entity.burner.heat
-			--logging("-> updated burner heat: " .. new_reactor_core.burner.heat)
-			--new_reactor_core.burner.remaining_burning_fuel = reactor.entity.burner.remaining_burning_fuel
-			--logging("-> updated burner remaining_burning_fuel: " .. new_reactor_core.burner.remaining_burning_fuel)
-	--	else
-	--		--logging("-> burner settings not transferred, empty")
-	--	end
-	--end
-
-	new_reactor_core.minable = false -- core should be unminable in any case cause its removed via script
-
-	new_reactor_core.get_fuel_inventory().insert{name="rr-dummy-fuel-cell", count = 50}
-
-
-	-- destroy old core
-	reactor.core.destroy()
-	-- store new core
-	reactor.core = new_reactor_core
-	--update reactor core id with new core unit_number
-	reactor.core_id = new_reactor_core.unit_number
-
-	--logging("-> reactor replaced")
-	--logging("- new reactor ID: " .. reactor.id)
-	--logging("- new reactor core ID: " .. reactor.core_id)
-end
 
 local function update_reactor_signals(reactor, tick)
 	local inventory = reactor.entity.get_fuel_inventory()
@@ -283,7 +204,7 @@ local function update_reactor_signals(reactor, tick)
 	if game.tick - reactor.interface_warning_tick >=60  and reactor.interface_warning and reactor.interface_warning.valid then
 		reactor.interface_warning.destroy()
 	end
-	reactor.signals.parameters["core_temperature"].count = reactor.core.temperature
+	reactor.signals.parameters["core_temperature"].count = reactor.entity.temperature
 
 	local fluid = reactor.eccs.fluidbox[1]
 	if fluid then
@@ -320,7 +241,7 @@ local function update_reactor_temperature(reactor, tick)
 	local time_passed = math.max(1,tick - reactor.last_temp_update)
 	reactor.last_temp_update = tick
 	local change_mult = CHANGE_MULTIPLIER * (time_passed / 15)
-	local reactor_core_temperature = reactor.core.temperature
+	local reactor_core_temperature = reactor.entity.temperature
 	local reactor_state = reactor.state
 	local powersignal = reactor.signals.parameters["power-output"].count
 	local reactor_efficiency = reactor.efficiency
@@ -362,10 +283,10 @@ local function update_reactor_temperature(reactor, tick)
 			local Tchange_reactor_env = (Tdelta_reactor_env * change_mult * 0.1)
 			--logging("-> Tchange_reactor_env: " .. Tchange_reactor_env)
 			if (reactor_core_temperature - Tchange_reactor_env) > 15 then
-				reactor.core.temperature = reactor_core_temperature - Tchange_reactor_env
+				reactor.entity.temperature = reactor_core_temperature - Tchange_reactor_env
 				reactor_core_temperature = reactor_core_temperature - Tchange_reactor_env
 			else
-				reactor.core.temperature = 15
+				reactor.entity.temperature = 15
 				reactor_core_temperature = 15
 			end
 			]]
@@ -380,8 +301,8 @@ local function update_reactor_temperature(reactor, tick)
 		end
 	end
 
-	-- do decay heat effect if state is scramed
-	if reactor_state == 3 and Setting.behavior("scram") == "decay-heat-v1" then
+	-- generate power
+	if reactor_state ~= 0 then
 		reactor_core_temperature = reactor_core_temperature + powersignal/20
 	end
 
@@ -535,7 +456,7 @@ local function update_reactor_temperature(reactor, tick)
 		-- destroy the reactor core (will trigger meltdown)
 		reactor.entity.die()
 	else
-		reactor.core.temperature = reactor_core_temperature
+		reactor.entity.temperature = reactor_core_temperature
 	end
 
 end
@@ -556,9 +477,7 @@ local function change_reactor_state(new_state, reactor, tick)
 		reactor.signals.parameters["state_running"].count = 0
 		reactor.signals.parameters["state_scramed"].count = 0
 		-- configure reactor
-		replace_reactor_core(reactor,"realistic-reactor-1")
 		reactor.entity.active = false
-		reactor.core.active = false
 		reactor.entity.minable = true
 	elseif new_state == 1 then
 		--set signals
@@ -568,7 +487,6 @@ local function change_reactor_state(new_state, reactor, tick)
 		reactor.signals.parameters["state_scramed"].count = 0
 		-- configure reactor
 		reactor.entity.active = true
-		reactor.core.active = true
 		--reactor.debug_start_cell = true
 		reactor.entity.minable = false
 		light_color = "yellow"
@@ -580,7 +498,6 @@ local function change_reactor_state(new_state, reactor, tick)
 		reactor.signals.parameters["state_scramed"].count = 0
 		-- configure reactor
 		reactor.entity.active = true
-		reactor.core.active = true
 
 		reactor.entity.minable = false
 		light_color = "green"
@@ -592,7 +509,6 @@ local function change_reactor_state(new_state, reactor, tick)
 		reactor.signals.parameters["state_scramed"].count = 1
 		-- configure reactor
 		if Setting.behavior("scram") == "decay-heat-v1" then
-			reactor.core.active = false
 			reactor.entity.active = false
 			if reactor.entity.burner.currently_burning then
 				reactor.entity.get_burnt_result_inventory().insert({name = reactor.entity.burner.currently_burning.burnt_result.name, count = 1})
@@ -600,22 +516,21 @@ local function change_reactor_state(new_state, reactor, tick)
 			reactor.entity.burner.currently_burning = nil
 			reactor.entity.burner.remaining_burning_fuel = 0
 		else
-			reactor.core.active = true
 			reactor.entity.active = true
 		end
 		reactor.entity.minable = false
 		light_color = "red"
 	end
-	local p = reactor.core.position
-	reactor.lamp = reactor.core.surface.create_entity{
+	local p = reactor.position
+	reactor.lamp = reactor.entity.surface.create_entity{
 		name = "rr-"..light_color.."-lamp",
 		position = {p.x+0.017,p.y+0.88},
-		force = reactor.core.force.name,
+		force = reactor.entity.force.name,
 	}
-	reactor.light = reactor.core.surface.create_entity{
+	reactor.light = reactor.entity.surface.create_entity{
 		name = "rr-"..light_color.."-light",
 		position = {p.x+0.017,p.y+0.88},
-		force = reactor.core.force.name,
+		force = reactor.entity.force.name,
 	}
 	reactor.lamp.destructible = false
 	reactor.light.destructible = false
@@ -625,9 +540,7 @@ end
 local function update_reactor_states(reactor, tick)
 	--logging("---")
 	--logging("Updating reactor ID: " .. reactor.id)
-	--logging("Reactor core ID: " .. reactor.core_id)
 	--logging("Reactor type: ".. reactor.entity.name)
-	--logging("Reactor model: " .. reactor.core.name)
 	--logging("Reactor state: " .. reactor.state)
 	local running_time = math.ceil((tick - reactor.state_active_since)/60)
 	--logging("-> state active for (s): " .. running_time)
@@ -785,7 +698,7 @@ local function update_reactor_states(reactor, tick)
 			-- reactor_parameters.bonus_cells = 0
 		-- end
 
-		--logging("-> Temperature="..reactor.core.temperature.." PowerOutput="..reactor_parameters.power.." Efficiency="..math.floor(reactor_parameters.efficiency).." BonusCellAmount: "..reactor_parameters.bonus_cells)
+		--logging("-> Temperature="..reactor.entity.temperature.." PowerOutput="..reactor_parameters.power.." Efficiency="..math.floor(reactor_parameters.efficiency).." BonusCellAmount: "..reactor_parameters.bonus_cells)
 
 		--apply material bonus by adding empty fuel cell
 		local burnt_result
@@ -865,37 +778,16 @@ local function update_reactor_states(reactor, tick)
 		if reactor_state == 2 or reactor_state == 1 then
 			reactor.power_output_last_tick = reactor_parameters.power
 		end
-
-
-		-- replace reactor with updated level version
-		--logging("Replace reactor model:")
-		local reactor_to_build = "realistic-reactor-" .. math.max(1,reactor_parameters.power)
-		--logging("-Reactor to be: "..reactor_to_build)
-		--logging("-Current reactor: "..reactor.core.name)
-		if reactor.core.name == reactor_to_build then
-			--logging("-> Reactor already build.")
-		elseif not (reactor_state == 3 and Setting.behavior("scram") == "decay-heat-v1") then
-			replace_reactor_core(reactor,reactor_to_build)
-		end
-
 	end
 
 
 	-- UPDATE DISPLAYER --
-	reactor.entity.temperature = reactor.core.temperature
-
 	reactor.last_states_update = game.tick
 end
 
 
-local function is_core(entity)
-	return string.sub(entity.name, 1, 18) == "realistic-reactor-"
-	   and not E2I_NAME[entity.name]
-end
-
 local function is_reactor(entity)
 	return entity.type == "reactor"
-	   and not is_core(entity)
 end
 
 local function reactor_is_empty(entity)
