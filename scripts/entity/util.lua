@@ -20,13 +20,6 @@ local function find_nuclear_ghost(surface, position, name)
 	})[1]
 end
 
-
-local function get_reactor_core_power(entity)
-	if string.sub(entity.name,1,18) ~= "realistic-reactor-" then return nil end
-	return tonumber(string.sub(entity.name, 19))
-end
-
-
 local function create_warning(entity,kind)
 	local warning = entity.surface.create_entity{
 		name = "rr-" .. kind .. "-warning",
@@ -52,7 +45,6 @@ end
 return { -- exports
 	create_steam = create_steam,
 	create_warning = create_warning,
-	get_reactor_core_power = get_reactor_core_power,
 	next_delay = next_delay,
 	find_nuclear_entity = find_nuclear_entity,
 	find_nuclear_ghost  = find_nuclear_ghost,

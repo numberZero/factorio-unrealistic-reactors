@@ -20,7 +20,3 @@ end
 insert_categories(data.raw.reactor["realistic-reactor"])
 insert_categories(data.raw.reactor["realistic-reactor-normal"])
 insert_categories(data.raw.reactor["realistic-reactor-breeder"])
-
-for i=1, 250 do
-	insert_categories(data.raw.reactor["realistic-reactor-"..i])
-end

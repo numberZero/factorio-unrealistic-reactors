@@ -59,7 +59,6 @@ local function find_reactors()
 			local p = reactor_entity.position
 			local subs = get_subs(surface.find_entities({{p.x-1.5, p.y-1.5}, {p.x+1.5, p.y+1.5}}), {
 				entity = reactor_entity.name,
-				core = function(name) return string.match(name, "realistic%-reactor%-%d+") end,
 				interface = E2I_NAME[reactor_entity.name],
 				eccs = BOILER_ENTITY_NAME,
 				power = POWER_NAME[reactor_entity.name],
@@ -68,13 +67,11 @@ local function find_reactors()
 			})
 			local reactor = {
 				id = subs.entity.unit_number, -- ID of the reactor (doesn't change)
-				core_id = subs.core.unit_number, -- ID of the core (changes when core is replaced)
-				core = subs.core, -- core entity
 				interface = subs.interface, -- interface entity
 				eccs = subs.eccs, -- eccs entity
 				power = subs.power, -- power entity
 				entity = subs.entity, -- displayer entity
-				position = subs.core.position, -- core position = reactor position
+				position = subs.entity.position,
 				state = 0, -- reactor state
 				state_active_since = game.tick - TICKS_PER_UPDATE, -- state begin
 				neighbours = 1, -- number of connected reactors and itself

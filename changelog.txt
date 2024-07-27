@@ -14,3 +14,5 @@ Date: 2024-07-17
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.3
 Date: UNRELEASED
+  Changes:
+    - replaced multi-entity power generation dance with direct temperature manipulation

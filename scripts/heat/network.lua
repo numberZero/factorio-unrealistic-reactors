@@ -1,6 +1,5 @@
 local rpath = (...):match("(.-)[^%.]+$")
 local rroot = rpath:match("^([^%.]+%.)")
-local get_reactor_core_power = require(rroot .. "entity.util").get_reactor_core_power
 local mod = require(rpath .. "init")
 local heat_buffer_transition_position = require(rpath .. "buffer").heat_buffer_transition_position
 local heat_buffer_transitions = require(rpath .. "buffer").heat_buffer_transitions
@@ -549,7 +548,6 @@ local function calculate_corner_index(area, x,y)
 	return i -- {1=(x,y inside area), 2=(x outside area), 3=(y outside area), 4=(x,y outside area)}
 end
 local function add_reactor_to_network(entity)
-	if get_reactor_core_power(entity) then return end -- ignore reactor cores
 	local x,y,z = Coordinates(entity)
 -- 	log(string.format("add reactor to network  x=%s y=%s z=%s", x,y,z))
 	local cell = add_entity_to_network_cell(x,y,z,entity)
@@ -580,7 +578,6 @@ end
 
 
 local function remove_reactor_from_network(entity)
-	if get_reactor_core_power(entity) then return end -- ignore reactor cores
 	local x,y,z = Coordinates(entity)
 	local cell = get_heat_network_cell(x,y,z)
 	local reactor = cell and cell.reactors[entity.unit_number]

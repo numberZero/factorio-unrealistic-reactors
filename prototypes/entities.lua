@@ -220,7 +220,7 @@ reactor_template = {
 	flags = {"not-deconstructable", unpack(REACTOR_TEMPLATE_ENTITY_FLAGS)},
 	max_health = 500,
 	corpse = "big-remnants",
-	consumption = "40MW",
+	consumption = "0.00001W",
 	neighbour_bonus = 0,
 	selectable_in_game = false,
 	vehicle_impact_sound = {filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
@@ -293,7 +293,6 @@ reactor_normal.flags = {"not-rotatable", "hide-alt-info", unpack(REACTOR_ENTITY_
 reactor_normal.placeable_by = {item="realistic-reactor", count = 1}
 reactor_normal.resistances = REACTOR_RESISTANCES_ATTRS
 reactor_normal.minable = {mining_time = 1.5, result = "realistic-reactor"}
-reactor_normal.consumption = "0.00001W"
 reactor_normal.collision_box = {{-1.3, -1.3}, {1.3, 1.4}}
 --reactor_normal.selection_box = {{-1.4, -1.9}, {1.4, 0.5}}
 reactor_normal.selection_box = {{-1.4, -1.8}, {1.4, 1.35}} --eccs would not be selectable, but interface would.
@@ -349,8 +348,6 @@ reactor_normal.heat_lower_layer_picture = apply_heat_pipe_glow{
 	shift = REACTOR_DEFAULT_PICTURE_ATTRS.shift,
 }
 
-reactor_normal.heat_buffer.specific_heat = "1kJ"
-reactor_normal.heat_buffer.max_transfer = "0.00001W"
 reactor_normal.heat_buffer.heat_picture = apply_heat_pipe_glow{
 	filename = "__UnrealisticReactors__/graphics/entity/reactor-heated.png",
 	priority = "extra-high",
@@ -395,23 +392,6 @@ reactor_default.resistances = {}
 table.insert(reactor_template.flags, "no-automated-item-insertion")
 table.insert(reactor_template.flags, "no-automated-item-removal")
 
--- Nuclear reactor x, running phase
-for i=1, 250 do
-
-	local temp_reactor = table.deepcopy(reactor_template)
-	temp_reactor.name = "realistic-reactor-"..i
-	temp_reactor.collision_mask = {"item-layer"}
-	temp_reactor.consumption = i.."MW"
-
-	if debug_core then
-		temp_reactor.selection_box = {{-1.4, -2.5}, {1.4, 1.35}}
-		temp_reactor.selectable_in_game = true
-	end
-
-	data:extend({temp_reactor})
-
-end
- 
 -- Circuit interface entity for nuclear reactor
 reactor_interface = {
 	type = "constant-combinator",
